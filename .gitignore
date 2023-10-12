@@ -1,0 +1,4 @@
+.vscode
+.docker
+nginx
+init.sql
