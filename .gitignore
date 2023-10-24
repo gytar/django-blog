@@ -2,3 +2,4 @@
 .docker
 nginx
 init.sql
+__pycache__
