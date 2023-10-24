@@ -24,5 +24,9 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 # copy project
 COPY . .
 
+# insall local packages
+RUN python -m pip install --user django-polls-0.1.tar.gz
+
+
 # run entrypoint.sh
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
