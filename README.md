@@ -11,9 +11,9 @@ This is an API implementation for a Database of Receipes and Ingredients
 
 When the user put a list of ingredient, it will give back a list of receipes that matches the given ingredients. 
 
-When the user put a list of receipes, it will output a list of ingredients to have, with measures. 
+When the user put a list of receipes, it will output a list of ingredients needed, with measures. 
 
-### What is used where? 
+### What is used here? 
 - Django REST Framework
 - Django-haystack for search with Solr
 - Docker compose implementation
