@@ -1,8 +1,20 @@
-# Django with docker
+# What we eat Django
 
-Create a blog app on Django with Docker. 
+This is the backend / API implementation of the *What we eat* application. 
 
-Sources : 
+Front end will come soon! :rocket:
 
-- For the docker implementation : [https://github.com/testdrivenio/django-on-docker/](https://github.com/testdrivenio/django-on-docker/)
+Nothing is implemented for now, only a few models. 
+
+### What is it?
+This is an API implementation for a Database of Receipes and Ingredients
+
+When the user put a list of ingredient, it will give back a list of receipes that matches the given ingredients. 
+
+When the user put a list of receipes, it will output a list of ingredients to have, with measures. 
+
+### What is used where? 
+- Django REST Framework
+- Django-haystack for search with Solr
+- Docker compose implementation
 
