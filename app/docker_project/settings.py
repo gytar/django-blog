@@ -33,7 +33,6 @@ CSRF_TRUSTED_ORIGINS = ["http://localhost:1337"]
 # Application definition
 
 INSTALLED_APPS = [
-    "polls.apps.PollsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -41,6 +40,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "debug_toolbar",
+    "haystack",
+    "rest_framework",
+    "whattoeat_api.apps.WhattoeatApiConfig",
+    # "polls.apps.PollsConfig",
 ]
 
 MIDDLEWARE = [
@@ -136,7 +139,23 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# ---------- HAYSTACK ----------
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        # Assuming you created a core named 'tester' as described in installing search engines.
+        'URL': 'http://solr:8983/solr/fridge',
+        'ADMIN_URL': 'http://solr:8983/solr/admin/cores'
+        # ...or for multicore...
+        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
+    },
+}
+# ---------- HAYSTACK ----------
+
+
+# for debug toolbar
 if DEBUG:
     import socket  # only if you haven't already imported this
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
+    INTERNAL_IPS = [
+        ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]

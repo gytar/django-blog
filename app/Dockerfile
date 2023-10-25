@@ -25,6 +25,7 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 COPY . .
 
 # insall local packages
+ENV UWSGI_INI uwsgi.ini
 RUN python -m pip install --user django-polls-0.1.tar.gz
 
 

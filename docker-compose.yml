@@ -8,11 +8,11 @@ services:
       - ./app/:/usr/src/app/
     ports:
       - 8000:8000
-      - 3000:3000
     env_file:
       - ./.env.dev
     depends_on:
       - db
+      - solr
   db:
     image: postgres:15
     volumes:
@@ -21,5 +21,12 @@ services:
       - POSTGRES_USER=docker_project
       - POSTGRES_PASSWORD=docker_project
       - POSTGRES_DB=docker_project_dev
+  solr:
+    image: solr:9
+    ports:
+      - "8983:8983"
+    volumes:
+      - solr_data:/var/solr
 volumes:
   postgres_data:
+  solr_data:
